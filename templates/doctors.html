@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <div class="doctors-list">
+        {% for doctor in doctors %}
+            <div class="doctor">
+                <div class="doctor-photo">
+                    <img src="{{ doctor.photo.url }}" alt="Фото врача"
+                         style="width: 100px; height: 100px;">
+                </div>
+                <div class="doctor-info">
+                    <h2>{{ doctor.name }}</h2>
+                    <p><strong>Стаж работы:</strong> {{ doctor.seniority }}</p>
+                    <p><strong>Специализация:</strong> {{ doctor.specialization }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
